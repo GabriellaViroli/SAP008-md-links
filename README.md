@@ -1,6 +1,6 @@
 # Markdown Links
 
-Desenvolvido por Gabriella Viroli, com muito ☕ 
+Desenvolvido por Gabriella Viroli ☕ 
 
 ## 1. Resumo
 
