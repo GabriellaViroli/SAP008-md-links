@@ -1,6 +1,6 @@
 const fs = require('fs');
- 
-function matchingLinks(text) {
+
+function mdLinks(text) {
     const regexMdLinks = /\[([^\[]+)\](\(.*\))/gm;
     const arrayLinks = [];
     let regex;
@@ -13,15 +13,18 @@ function matchingLinks(text) {
 };
 
 function errorMessage(erro) {
-    throw new Error (erro.code, 'Encontramos um problema!');
+    throw new Error(erro.code, 'Encontramos um problema!');
 };
 
+function openFile() {
+    fs.readFile('test/example.md', 'utf8', (erro, data) => {
+        if (erro) {
+        return errorMessage(erro);
+    }
+    else {
+        mdLinks(data);
+    }
+});
+};
 
-
-matchingLinks(`# Foo bar
-some random text
-
-## Links here
-Links here
-- [linkedin](https://www.linkedin.com/in/gabriella-viroli/)
-- [testes](https://gabrieluizramos.com.br/anatomia-de-um-teste-em-javascript)`);
+openFile();
